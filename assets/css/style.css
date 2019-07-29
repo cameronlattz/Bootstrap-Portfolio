@@ -5,8 +5,22 @@ body {
 body, a {
     color: #777;
 }
-a {
+nav a {
     text-decoration: none;
+}
+nav a:hover {
+    color: #4aaaa5;
+}
+nav a:after {
+    content: '';
+    width: 0px;
+    height: 1px;
+    display: block;
+    background: #4aaaa5;
+    transition: 0.5s;
+}
+nav a:hover:after {
+    width: 100%;
 }
 h1 {
     color: #4aaaa5;
@@ -48,6 +62,8 @@ a.card {
     position: relative;
     display: inline-block;
     margin: 20px;
+    border: 2px solid transparent;
+    transition: border 0.5s;
 }
 a.card div {
     position: absolute;
@@ -58,6 +74,13 @@ a.card div {
     text-align: center;
     color: #fff;
     width: 100%;
+    transition: bottom 0.5s;
+}
+a.card:hover {
+    border: 2px solid #4aaaa5;
+}
+a.card:hover div {
+    bottom: 25px;
 }
 
 @media (max-width: 992px) {
@@ -68,12 +91,15 @@ a.card div {
         margin-left: -20%;
         margin-right: -20%;
     }
+    nav a:after {
+        display: none;
+    }
     nav .nav-item {
         display: inline;
     }
     nav .navbar-collapse {
         text-align: center;
-        margin-top: 10px;
+        margin-top: 3px;
         margin-bottom: 10px;
     }
 }
